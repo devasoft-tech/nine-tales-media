@@ -111,10 +111,7 @@ const NewNavigation = () => {
         <button 
           onClick={() => setIsOpen(!isOpen)}
           style={{
-            display: 'none',
-            '@media (max-width: 768px)': {
-              display: 'block'
-            },
+            display: isOpen ? 'block' : 'none',
             background: 'transparent',
             border: 'none',
             color: 'white',

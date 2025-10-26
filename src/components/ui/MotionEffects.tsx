@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring, MotionValue } from 'framer-motion';
 
 // Parallax effect component
@@ -149,7 +149,7 @@ export const AnimatedText = ({
   animation = 'reveal',
 }: { 
   text: string;
-  el?: keyof JSX.IntrinsicElements;
+  el?: keyof React.JSX.IntrinsicElements;
   className?: string;
   once?: boolean;
   repeatDelay?: number;
@@ -225,14 +225,18 @@ export const AnimatedText = ({
               delayChildren: 0.1,
             }
           }
-        }}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any}
         className="inline-block"
       >
         {words.map((word, i) => (
           <motion.span
             key={`${word}-${i}`}
             custom={i}
-            variants={variants}
+            variants={
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              variants as any
+            }
             className="inline-block mr-1"
           >
             {word}
@@ -374,26 +378,25 @@ export const CountUp = ({
   className?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const count = useMotionValue(start);
-  const rounded = useTransform(count, value => {
-    return `${prefix}${value.toFixed(decimals)}${suffix}`;
-  });
+  const [count, setCount] = useState(start);
   
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
   
-  useTransform(scrollYProgress, [0, 1], [start, end], {
-    mixer: (from, to) => {
-      count.set(from + (to - from) * scrollYProgress.get());
-      return from;
-    }
-  });
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on('change', (v) => {
+      setCount(Math.round(start + (end - start) * v));
+    });
+    return unsubscribe;
+  }, [scrollYProgress, start, end]);
+
+  const formattedValue = `${prefix}${count.toFixed(decimals)}${suffix}`;
 
   return (
     <motion.div ref={ref} className={className}>
-      <motion.span>{rounded}</motion.span>
+      <motion.span>{formattedValue}</motion.span>
     </motion.div>
   );
 };

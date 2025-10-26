@@ -584,10 +584,6 @@ const DirectFooter = () => {
             flexDirection: 'column',
             alignItems: 'center',
             gap: '16px',
-            '@media (min-width: 768px)': {
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }
           }}>
             <p style={{
               color: '#9ca3af',

@@ -583,13 +583,14 @@ const CreativeHero = () => {
                   justifyContent: 'center',
                 }}
               >
-                <div style={{
-                  position: 'relative',
-                  fontSize: '80px',
-                  className: 'fox-shadow',
-                  filter: 'drop-shadow(0 0 30px rgba(255, 107, 53, 0.6))',
-                  animation: 'pulse 3s infinite ease-in-out',
-                }}>
+                <div 
+                  className="fox-shadow"
+                  style={{
+                    position: 'relative',
+                    fontSize: '80px',
+                    filter: 'drop-shadow(0 0 30px rgba(255, 107, 53, 0.6))',
+                    animation: 'pulse 3s infinite ease-in-out',
+                  }}>
                   🦊
                 </div>
               </div>
