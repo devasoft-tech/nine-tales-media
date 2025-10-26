@@ -730,7 +730,7 @@ export default function Portfolio() {
                   marginBottom: '20px',
                   fontStyle: 'italic',
                 }}>
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </p>
 
                 {/* Project highlight */}
@@ -840,7 +840,7 @@ export default function Portfolio() {
               color: '#9ca3af',
               marginBottom: '32px',
             }}>
-              Let's discuss how we can help transform your business and achieve exceptional results.
+              Let&apos;s discuss how we can help transform your business and achieve exceptional results.
             </p>
 
             <div style={{

@@ -137,7 +137,7 @@ export default function Contact() {
               fontFamily: 'var(--font-display, "Space Grotesk", sans-serif)',
               lineHeight: 1.2,
             }}>
-              Let's Start Your{' '}
+              Let&apos;s Start Your{' '}
               <span style={{
                 background: 'linear-gradient(135deg, #ff6b35 0%, #ff3366 33%, #8b5cf6 66%, #0891b2 100%)',
                 backgroundSize: '200% auto',
@@ -157,7 +157,7 @@ export default function Contact() {
               margin: '0 auto 48px',
               lineHeight: 1.6,
             }}>
-              Ready to transform your business? Let's discuss how our premium digital solutions can accelerate your growth and deliver exceptional results.
+              Ready to transform your business? Let&apos;s discuss how our premium digital solutions can accelerate your growth and deliver exceptional results.
             </p>
 
             {/* Quick Contact Stats */}
@@ -313,7 +313,7 @@ export default function Contact() {
                 marginBottom: '24px',
                 fontFamily: 'var(--font-display, "Space Grotesk", sans-serif)',
               }}>
-                Let's Start a Conversation
+                Let&apos;s Start a Conversation
               </h2>
 
               <p style={{
@@ -322,7 +322,7 @@ export default function Contact() {
                 marginBottom: '40px',
                 lineHeight: 1.6,
               }}>
-                Ready to transform your business? We're here to help you achieve extraordinary results.
+                Ready to transform your business? We&apos;re here to help you achieve extraordinary results.
               </p>
 
               {/* Contact Methods */}
@@ -922,7 +922,7 @@ export default function Contact() {
               color: '#9ca3af',
               marginBottom: '32px',
             }}>
-              Let's discuss your project and how we can help transform your business.
+              Let&apos;s discuss your project and how we can help transform your business.
             </p>
 
             <div style={{

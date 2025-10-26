@@ -111,7 +111,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-300 mb-8 max-w-md leading-relaxed">
-              Crafting digital narratives that captivate, engage, and convert. We blend creativity with cutting-edge technology to bring your brand's story to life in the digital landscape.
+              Crafting digital narratives that captivate, engage, and convert. We blend creativity with cutting-edge technology to bring your brand&apos;s story to life in the digital landscape.
             </p>
             
             <div className="space-y-4">

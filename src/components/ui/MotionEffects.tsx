@@ -21,23 +21,29 @@ export const ParallaxSection = ({
     offset: ["start end", "end start"]
   });
 
-  // Calculate transform values based on direction
+  // Create all transform values (must be called unconditionally)
+  const transformUp = useTransform(scrollYProgress, [0, 1], ['0%', `${-50 * speed}%`]);
+  const transformDown = useTransform(scrollYProgress, [0, 1], ['0%', `${50 * speed}%`]);
+  const transformLeft = useTransform(scrollYProgress, [0, 1], ['0%', `${-50 * speed}%`]);
+  const transformRight = useTransform(scrollYProgress, [0, 1], ['0%', `${50 * speed}%`]);
+
+  // Select transform based on direction
   let transform: MotionValue<string>;
   switch (direction) {
     case 'up':
-      transform = useTransform(scrollYProgress, [0, 1], ['0%', `${-50 * speed}%`]);
+      transform = transformUp;
       break;
     case 'down':
-      transform = useTransform(scrollYProgress, [0, 1], ['0%', `${50 * speed}%`]);
+      transform = transformDown;
       break;
     case 'left':
-      transform = useTransform(scrollYProgress, [0, 1], ['0%', `${-50 * speed}%`]);
+      transform = transformLeft;
       break;
     case 'right':
-      transform = useTransform(scrollYProgress, [0, 1], ['0%', `${50 * speed}%`]);
+      transform = transformRight;
       break;
     default:
-      transform = useTransform(scrollYProgress, [0, 1], ['0%', `${-50 * speed}%`]);
+      transform = transformUp;
   }
 
   const style = direction === 'left' || direction === 'right' 

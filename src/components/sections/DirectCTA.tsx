@@ -101,7 +101,7 @@ const DirectCTA = () => {
             margin: '0 auto 40px',
             lineHeight: 1.6,
           }}>
-            Let's work together to create a compelling digital narrative for your brand. Contact us today for a free consultation.
+            Let&apos;s work together to create a compelling digital narrative for your brand. Contact us today for a free consultation.
           </p>
           
           <div style={{

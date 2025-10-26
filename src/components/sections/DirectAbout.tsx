@@ -318,7 +318,7 @@ const DirectAbout = () => {
               lineHeight: 1.2,
               letterSpacing: '-0.5px',
             }}>
-              We're a team of{' '}
+              We&apos;re a team of{' '}
               <span style={{
                 background: 'linear-gradient(135deg, #ff6b35 0%, #ff3366 33%, #8b5cf6 66%, #0891b2 100%)',
                 backgroundSize: '200% auto',

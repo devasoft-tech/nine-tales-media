@@ -1030,7 +1030,7 @@ export default function Services() {
                   marginBottom: '28px',
                   fontStyle: 'italic',
                 }}>
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </p>
 
                 {/* Metric highlight */}
@@ -1129,7 +1129,7 @@ export default function Services() {
               color: '#9ca3af',
               marginBottom: '40px',
             }}>
-              Let's discuss how our premium services can accelerate your digital growth and deliver exceptional results.
+              Let&apos;s discuss how our premium services can accelerate your digital growth and deliver exceptional results.
             </p>
 
             <div style={{

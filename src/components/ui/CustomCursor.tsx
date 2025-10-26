@@ -120,7 +120,6 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Main cursor */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference"
         animate={{
@@ -158,7 +157,6 @@ const CustomCursor = () => {
         </motion.div>
       </motion.div>
       
-      {/* Dot cursor */}
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999]"
         style={{
@@ -173,7 +171,6 @@ const CustomCursor = () => {
         }}
       />
 
-      {/* Particle trail effect */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998]"
         style={{
@@ -198,7 +195,6 @@ const CustomCursor = () => {
         />
       </motion.div>
       
-      {/* Click ripple effect */}
       {isClicking && (
         <motion.div
           className="fixed top-0 left-0 w-16 h-16 rounded-full border-2 border-primary-orange pointer-events-none z-[9997]"
@@ -216,8 +212,6 @@ const CustomCursor = () => {
       )}
     </>
   );
-};
-
   */
 };
 

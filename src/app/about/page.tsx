@@ -238,7 +238,7 @@ export default function About() {
               margin: '0 auto',
               lineHeight: 1.6,
             }}>
-              We craft digital experiences that tell your story and drive results. From strategy to execution, we're your partners in digital transformation.
+              We craft digital experiences that tell your story and drive results. From strategy to execution, we&apos;re your partners in digital transformation.
             </p>
           </motion.div>
         </div>
@@ -780,7 +780,7 @@ export default function About() {
               color: '#9ca3af',
               marginBottom: '24px',
             }}>
-              Let's create something amazing for your business.
+              Let&apos;s create something amazing for your business.
             </p>
 
             <div style={{

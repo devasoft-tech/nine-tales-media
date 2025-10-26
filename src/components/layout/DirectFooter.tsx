@@ -225,7 +225,7 @@ const DirectFooter = () => {
               maxWidth: '400px',
               lineHeight: 1.6,
             }}>
-              Crafting digital narratives that captivate, engage, and convert. We blend creativity with cutting-edge technology to bring your brand's story to life in the digital landscape.
+              Crafting digital narratives that captivate, engage, and convert. We blend creativity with cutting-edge technology to bring your brand&apos;s story to life in the digital landscape.
             </p>
             
             <div style={{

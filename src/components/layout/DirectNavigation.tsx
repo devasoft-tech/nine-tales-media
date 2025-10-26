@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { useEffect } from 'react';
 
 const DirectNavigation = () => {
@@ -34,29 +35,29 @@ const DirectNavigation = () => {
   return (
     <nav className="direct-nav">
       <div className="direct-container">
-        <a href="/" className="direct-logo" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+        <Link href="/" className="direct-logo" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
           <img
             src="/logo_white.png"
             alt="Nine Tales Media Logo"
             style={{ height: '100px', width: 'auto' }}
           />
           <span className="direct-logo-text" style={{ display: 'none' }}>Nine Tales Media</span>
-        </a>
+        </Link>
         
         <div className="direct-nav-links">
           {navItems.map((item) => (
-            <a 
+            <Link 
               key={item.name}
               href={item.href}
               className={`direct-nav-link ${isActive(item.href) ? 'active' : ''}`}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
           
-          <a href="/contact" className="direct-cta-button">
+          <Link href="/contact" className="direct-cta-button">
             Get Started
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
