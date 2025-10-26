@@ -1,0 +1,128 @@
+/* Direct CSS styles that bypass Tailwind */
+.direct-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.direct-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.direct-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.direct-logo-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff3366 50%, #8b5cf6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.direct-logo-text {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.direct-nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.direct-nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 0 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.direct-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.direct-nav-link.active {
+  color: #ff6b35;
+}
+
+.direct-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff3366 50%, #8b5cf6 100%);
+  border-radius: 9999px;
+}
+
+.direct-cta-button {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff3366 50%, #8b5cf6 100%);
+  color: white;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-weight: bold;
+  margin-left: 16px;
+  box-shadow: 0 4px 6px rgba(255, 107, 53, 0.25);
+  transition: all 0.3s ease;
+}
+
+.direct-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 53, 0.3);
+}
+
+/* Test component styles */
+.direct-test-component {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff3366;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.direct-test-button {
+  background-color: white;
+  color: #ff3366;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.direct-test-button:hover {
+  background-color: #f0f0f0;
+}
