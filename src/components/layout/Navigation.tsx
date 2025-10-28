@@ -88,7 +88,7 @@ const Navigation = () => {
 
             {/* Enhanced Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-4 md:ml-10 flex items-baseline space-x-2 md:space-x-4">
+              <div className="ml-6 md:ml-10 flex items-center gap-4">
                 {navItems.map((item, index) => {
                   const active = isActive(item.href);
                   return (
@@ -101,7 +101,7 @@ const Navigation = () => {
                     >
                       <Link
                         href={item.href}
-                        className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 relative group inline-block hover:bg-white/5 ${
+                        className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 relative group inline-flex items-center hover:bg-white/5 ${
                           active ? 'text-primary-orange' : 'text-gray-300 hover:text-white'
                         }`}
                       >
@@ -121,7 +121,7 @@ const Navigation = () => {
             </div>
 
             {/* Enhanced CTA Button */}
-            <div className="hidden md:block">
+            <div className="hidden md:block ml-4">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}

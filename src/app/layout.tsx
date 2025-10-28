@@ -58,7 +58,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
         {/* CustomCursor temporarily disabled */}
-        <DirectNavigation />
+        <Navigation />
         <main className="min-h-screen">
           {children}
         </main>

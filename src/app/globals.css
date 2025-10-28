@@ -322,6 +322,12 @@ a {
   @apply gap-6 lg:gap-8;
 }
 
+/* Fallback utilities for navbar when Tailwind custom tokens aren't picked up */
+.text-primary-orange { color: var(--primary-orange); }
+.text-primary-red { color: var(--primary-red); }
+.text-primary-purple { color: var(--primary-purple); }
+.bg-gradient-primary { background: var(--gradient-primary); }
+
 /* Text shadow for better readability */
 .text-shadow {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
