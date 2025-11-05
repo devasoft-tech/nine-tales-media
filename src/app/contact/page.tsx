@@ -24,10 +24,81 @@ export default function Contact() {
     message: '',
     service: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formattedMessage, setFormattedMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    // Format the message
+    const serviceLabels: { [key: string]: string } = {
+      content: 'Content Creation',
+      ads: 'Meta & Google Ads',
+      tvc: 'TVC Production',
+      ecommerce: 'E-commerce Marketing',
+      web: 'Web Development',
+      ai: 'AI Chatbot Integration',
+      other: 'Other'
+    };
+
+    const formattedSubject = `New Contact Form Submission from ${formData.name}`;
+    
+    let formattedBody = `New Contact Form Submission\n\n`;
+    formattedBody += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    formattedBody += `CONTACT INFORMATION:\n`;
+    formattedBody += `Name: ${formData.name}\n`;
+    formattedBody += `Email: ${formData.email}\n`;
+    if (formData.company) {
+      formattedBody += `Company: ${formData.company}\n`;
+    }
+    if (formData.service) {
+      formattedBody += `Service Interest: ${serviceLabels[formData.service] || formData.service}\n`;
+    }
+    if (formData.budget) {
+      formattedBody += `Budget: ${formData.budget}\n`;
+    }
+    formattedBody += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    formattedBody += `MESSAGE:\n`;
+    formattedBody += `${formData.message}\n\n`;
+    formattedBody += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    formattedBody += `Submitted: ${new Date().toLocaleString()}\n`;
+
+    setFormattedMessage(formattedBody);
+
+    // Create mailto link
+    const emailTo = 'info@ninetalesmedia.co.in';
+    const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(formattedSubject)}&body=${encodeURIComponent(formattedBody)}`;
+
+    // Open email client
+    try {
+      window.location.href = mailtoLink;
+      
+      // Simulate delay for better UX
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      setSubmitStatus('success');
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          budget: '',
+          message: '',
+          service: ''
+        });
+        setSubmitStatus('idle');
+      }, 3000);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -729,32 +800,105 @@ export default function Contact() {
                   />
                 </div>
 
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{
+                      padding: '16px 20px',
+                      background: 'rgba(34, 197, 94, 0.1)',
+                      border: '1px solid rgba(34, 197, 94, 0.3)',
+                      borderRadius: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                      marginBottom: '16px',
+                    }}
+                  >
+                    <CheckCircleIcon style={{ width: '24px', height: '24px', color: '#22c55e' }} />
+                    <div>
+                      <div style={{ color: '#22c55e', fontWeight: 600, fontSize: '1rem', marginBottom: '4px' }}>
+                        Message Sent Successfully!
+                      </div>
+                      <div style={{ color: '#9ca3af', fontSize: '0.875rem' }}>
+                        Your email client should open shortly. If it doesn&apos;t, please send to info@ninetalesmedia.co.in
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{
+                      padding: '16px 20px',
+                      background: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid rgba(239, 68, 68, 0.3)',
+                      borderRadius: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                      marginBottom: '16px',
+                    }}
+                  >
+                    <div style={{ width: '24px', height: '24px', color: '#ef4444', fontSize: '1.5rem' }}>⚠️</div>
+                    <div>
+                      <div style={{ color: '#ef4444', fontWeight: 600, fontSize: '1rem', marginBottom: '4px' }}>
+                        Error Sending Message
+                      </div>
+                      <div style={{ color: '#9ca3af', fontSize: '0.875rem' }}>
+                        Please try again or contact us directly at info@ninetalesmedia.co.in
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   style={{
                     padding: '18px 32px',
-                    background: 'linear-gradient(135deg, #ff6b35 0%, #ff3366 50%, #8b5cf6 100%)',
+                    background: isSubmitting 
+                      ? 'rgba(255, 255, 255, 0.1)' 
+                      : 'linear-gradient(135deg, #ff6b35 0%, #ff3366 50%, #8b5cf6 100%)',
                     border: 'none',
                     borderRadius: '16px',
                     color: 'white',
                     fontWeight: 700,
                     fontSize: '1.125rem',
-                    cursor: 'pointer',
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
                     transition: 'all 0.4s ease',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '12px',
+                    opacity: isSubmitting ? 0.7 : 1,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+                    if (!isSubmitting) {
+                      e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+                    }
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0) scale(1)';
                   }}
                 >
-                  <PaperAirplaneIcon style={{ width: '20px', height: '20px' }} />
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        style={{ width: '20px', height: '20px', border: '2px solid white', borderTop: '2px solid transparent', borderRadius: '50%' }}
+                      />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <PaperAirplaneIcon style={{ width: '20px', height: '20px' }} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </motion.div>
