@@ -160,8 +160,8 @@ const DirectAbout = () => {
         {/* Main content grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-          gap: '60px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
+          gap: '40px 60px',
           alignItems: 'center',
           marginBottom: '60px',
         }}>
@@ -353,7 +353,7 @@ const DirectAbout = () => {
             {/* Values grid */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
               gap: '14px',
               marginBottom: '28px',
             }}>
@@ -454,7 +454,7 @@ const DirectAbout = () => {
         {/* Stats section */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
           gap: '24px',
           animation: 'slideInUp 0.8s ease-out 0.4s both',
         }}>

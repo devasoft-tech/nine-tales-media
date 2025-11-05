@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/layout/Navigation";
 import NewNavigation from "@/components/layout/NewNavigation";
 import DirectNavigation from "@/components/layout/DirectNavigation";
 import Footer from "@/components/layout/Footer";
@@ -58,8 +57,8 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
         {/* CustomCursor temporarily disabled */}
-        <Navigation />
-        <main className="min-h-screen">
+        <NewNavigation />
+        <main className="min-h-screen" style={{ paddingTop: 'var(--navbar-height, 80px)' }}>
           {children}
         </main>
         <DirectFooter />

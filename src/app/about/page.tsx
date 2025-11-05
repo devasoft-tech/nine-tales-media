@@ -466,7 +466,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Revolutionary Team Layout */}
+      {/* Revolutionary Team Layout - COMMENTED OUT */}
+      {/* 
       <section style={{
         padding: '80px 0',
         position: 'relative',
@@ -479,13 +480,11 @@ export default function About() {
           position: 'relative',
           zIndex: 1,
         }}>
-          {/* Creative Header */}
           <div style={{
             textAlign: 'center',
             marginBottom: '60px',
             position: 'relative',
           }}>
-            {/* Background logo effect */}
             <div style={{
               position: 'absolute',
               top: '50%',
@@ -569,7 +568,6 @@ export default function About() {
           </motion.div>
           </div>
 
-          {/* Simple Team Grid */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
@@ -637,7 +635,6 @@ export default function About() {
             ))}
           </div>
 
-          {/* Team stats at bottom */}
           <div style={{
             margin: '40px auto 0',
             maxWidth: '800px',
@@ -743,6 +740,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      */}
 
 
       {/* Simple CTA */}

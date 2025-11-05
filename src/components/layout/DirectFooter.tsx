@@ -150,7 +150,7 @@ const DirectFooter = () => {
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
           gap: '32px',
         }}>
           {/* Company Info */}
@@ -323,13 +323,13 @@ const DirectFooter = () => {
             </h3>
             
             <div style={{
-              columnCount: 2,
-              columnGap: '16px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+              gap: '12px 16px',
             }}>
               {services.map((service) => (
                 <div key={service} style={{
-                  marginBottom: '12px',
-                  breakInside: 'avoid',
+                  marginBottom: '0',
                 }}>
                   <Link href="/services" className="footer-link" style={{
                     color: '#9ca3af',

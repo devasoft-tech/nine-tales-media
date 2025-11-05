@@ -48,7 +48,7 @@ const DirectCTA = () => {
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
           borderRadius: '24px',
-          padding: '64px',
+          padding: 'clamp(32px, 8vw, 64px)',
           border: '1px solid rgba(255, 255, 255, 0.05)',
           boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)',
           textAlign: 'center',
@@ -95,7 +95,7 @@ const DirectCTA = () => {
           </h2>
           
           <p style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
             color: '#d1d5db',
             maxWidth: '700px',
             margin: '0 auto 40px',
